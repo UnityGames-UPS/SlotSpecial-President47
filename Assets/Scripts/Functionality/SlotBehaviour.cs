@@ -275,7 +275,10 @@ public class SlotBehaviour : MonoBehaviour
     private IEnumerator StopAutoSpinCoroutine()
     {
         yield return new WaitUntil(() => !IsSpinning);
-        ToggleButtonGrp(true);
+        if (SocketManager.resultData.features.freeSpin.count == 0)
+        {
+            ToggleButtonGrp(true);
+        }
         if (AutoSpinRoutine != null || tweenroutine != null)
         {
             if (AutoSpinRoutine != null) StopCoroutine(AutoSpinRoutine);
@@ -342,7 +345,10 @@ public class SlotBehaviour : MonoBehaviour
         }
         else
         {
-            ToggleButtonGrp(true);
+            if (SocketManager.resultData.features.freeSpin.count == 0)
+            {
+                ToggleButtonGrp(true);              //////////
+            }
         }
     }
     #endregion
@@ -750,7 +756,7 @@ public class SlotBehaviour : MonoBehaviour
         {
             stopautospin();
         }
-        if (!IsAutoSpin && FreeSpinComplete)
+        if (!IsAutoSpin && FreeSpinComplete && SocketManager.resultData.features.freeSpin.count == 0)
         {
             Debug.Log("Dev test " + FreeSpinComplete);
             ToggleButtonGrp(true);

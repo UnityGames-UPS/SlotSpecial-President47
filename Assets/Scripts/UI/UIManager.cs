@@ -142,6 +142,7 @@ public class UIManager : MonoBehaviour
 
     private int FreeSpins;
     internal int localfreespin;
+    internal int ExtraSpins;
     private Tween megawin_Tween;
 
 
@@ -327,7 +328,7 @@ public class UIManager : MonoBehaviour
     internal void FreeSpinProcess(int spins)
     {
         Debug.Log(localfreespin);
-        int ExtraSpins = Mathf.Abs(localfreespin - spins);
+        ExtraSpins = Mathf.Abs(localfreespin - spins);
         FreeSpins = spins;
         localfreespin = spins;
         Debug.Log("ExtraSpins: " + localfreespin);
