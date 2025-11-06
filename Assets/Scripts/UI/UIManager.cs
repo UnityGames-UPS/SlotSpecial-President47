@@ -18,6 +18,8 @@ public class UIManager : MonoBehaviour
     [Header("Popus UI")]
     [SerializeField]
     private GameObject MainPopup_Object;
+    [SerializeField]
+    private GameObject WinMainPopup_Object;
 
     [Header("Paytable Popup")]
     [SerializeField]
@@ -363,7 +365,7 @@ public class UIManager : MonoBehaviour
     internal void PopulateWin(int value)
     {
         if (WinPopupMain_Object) WinPopupMain_Object.SetActive(true);
-        if (MainPopup_Object) MainPopup_Object.SetActive(true);
+        if (WinMainPopup_Object) WinMainPopup_Object.SetActive(true);
         switch (value)
         {
             case 1:
@@ -372,7 +374,7 @@ public class UIManager : MonoBehaviour
                 {
                     if (BigWin_Object) BigWin_Object.SetActive(false);
                     if (WinPopupMain_Object) WinPopupMain_Object.SetActive(false);
-                    if (MainPopup_Object) MainPopup_Object.SetActive(false);
+                    if (WinMainPopup_Object) WinMainPopup_Object.SetActive(false);
                     slotManager.CheckPopups = false;
                 });
                 break;
@@ -382,7 +384,7 @@ public class UIManager : MonoBehaviour
                 {
                     if (Megawin_Object) Megawin_Object.SetActive(false);
                     if (WinPopupMain_Object) WinPopupMain_Object.SetActive(false);
-                    if (MainPopup_Object) MainPopup_Object.SetActive(false);
+                    if (WinMainPopup_Object) WinMainPopup_Object.SetActive(false);
                     slotManager.CheckPopups = false;
                 });
                 break;
@@ -395,7 +397,7 @@ public class UIManager : MonoBehaviour
         megawin_Tween?.Kill();
         if (BigWin_Object) BigWin_Object.SetActive(false);
         if (WinPopupMain_Object) WinPopupMain_Object.SetActive(false);
-        if (MainPopup_Object) MainPopup_Object.SetActive(false);
+        if (WinMainPopup_Object) WinMainPopup_Object.SetActive(false);
         if (Megawin_Object) Megawin_Object.SetActive(false);
         slotManager.CheckPopups = false;
     }
