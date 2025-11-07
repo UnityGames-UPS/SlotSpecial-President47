@@ -409,15 +409,15 @@ public class UIManager : MonoBehaviour
             string text = null;
             if (paylines.symbols[i].multiplier[0] != 0)
             {
-                text += "5x - " + (paylines.symbols[i].multiplier[0] * socketManager.initialData.bets[slotManager.BetCounter]) ;
+                text += "5x - " + (paylines.symbols[i].multiplier[0] * socketManager.initialData.bets[slotManager.BetCounter]);
             }
             if (paylines.symbols[i].multiplier[1] != 0)
             {
-                text += "\n4x - " + (paylines.symbols[i].multiplier[1]* socketManager.initialData.bets[slotManager.BetCounter]) ;
+                text += "\n4x - " + (paylines.symbols[i].multiplier[1] * socketManager.initialData.bets[slotManager.BetCounter]);
             }
             if (paylines.symbols[i].multiplier[2] != 0)
             {
-                text += "\n3x - " + (paylines.symbols[i].multiplier[2]* socketManager.initialData.bets[slotManager.BetCounter]) ;
+                text += "\n3x - " + (paylines.symbols[i].multiplier[2] * socketManager.initialData.bets[slotManager.BetCounter]);
             }
             if (SymbolsText[i]) SymbolsText[i].text = text;
         }
@@ -448,6 +448,30 @@ public class UIManager : MonoBehaviour
 
     private void OpenPopup(GameObject Popup)
     {
+        if (Popup == LBPopup_Object)
+        {
+            if (PaytablePopup_Object.activeSelf) PaytablePopup_Object.SetActive(false);
+            if (SettingsPopup_Object.activeSelf) SettingsPopup_Object.SetActive(false);
+        }
+        if (Popup == DisconnectPopup_Object)
+        {
+            if (PaytablePopup_Object.activeSelf) PaytablePopup_Object.SetActive(false);
+            if (SettingsPopup_Object.activeSelf) SettingsPopup_Object.SetActive(false);
+            if (FreeSpinPopup_Object.activeSelf) FreeSpinPopup_Object.SetActive(false);
+            if (LBPopup_Object.activeSelf) LBPopup_Object.SetActive(false);
+        }
+        if (Popup == ReconnectPopup_Object)
+        {
+            if (PaytablePopup_Object.activeSelf) PaytablePopup_Object.SetActive(false);
+            if (SettingsPopup_Object.activeSelf) SettingsPopup_Object.SetActive(false);
+            if (FreeSpinPopup_Object.activeSelf) FreeSpinPopup_Object.SetActive(false);
+            if (LBPopup_Object.activeSelf) LBPopup_Object.SetActive(false);
+        }
+        if (Popup == FreeSpinPopup_Object)
+        {
+            if (PaytablePopup_Object.activeSelf) PaytablePopup_Object.SetActive(false);
+            if (SettingsPopup_Object.activeSelf) SettingsPopup_Object.SetActive(false);
+        }
         if (audioController) audioController.PlayButtonAudio();
         if (Popup) Popup.SetActive(true);
         if (MainPopup_Object) MainPopup_Object.SetActive(true);
