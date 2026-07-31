@@ -152,6 +152,16 @@ public class UIManager : MonoBehaviour
     {
         //if (Loading_Object) Loading_Object.SetActive(true);
         //StartCoroutine(LoadingRoutine());
+        if (socketManager != null && socketManager.JSManager != null)
+            socketManager.JSManager.RegisterVisibilityListener(gameObject.name);
+    }
+
+    public void OnFocusChanged(string value)
+    {
+        bool focused = value == "1";
+        Debug.Log("UNITY FOCUS CHANGED: " + value + " (focused: " + focused + ")");
+        audioController?.SetMuteAll(focused ? !isSound : true);
+        socketManager?.HandleFocusChange(focused);
     }
 
     private IEnumerator LoadingRoutine()
