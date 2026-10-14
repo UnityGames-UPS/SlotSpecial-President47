@@ -6,9 +6,9 @@ using System;
 public class AudioController : MonoBehaviour
 {
     [SerializeField] private AudioSource bg_adudio;
-    [SerializeField] internal AudioSource audioPlayer_wl;
-    [SerializeField] internal AudioSource audioPlayer_button;
-    [SerializeField] internal AudioSource audioSpin_button;
+    [SerializeField] private AudioSource audioPlayer_wl;
+    [SerializeField] private AudioSource audioPlayer_button;
+    [SerializeField] private AudioSource audioSpin_button;
     [SerializeField] private AudioClip[] clips;
 
     private void Start()
@@ -90,7 +90,7 @@ public class AudioController : MonoBehaviour
         audioPlayer_wl.loop = false;
     }
 
-    internal void StopBgAudio()
+    private void StopBgAudio()
     {
         bg_adudio.Stop();
     }

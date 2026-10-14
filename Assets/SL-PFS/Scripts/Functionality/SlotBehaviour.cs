@@ -43,7 +43,7 @@ public class SlotBehaviour : MonoBehaviour
     [SerializeField]
     private Sprite Highlighted_Sprite;
 
-    public Dictionary<int, string> y_string = new Dictionary<int, string>();
+    internal Dictionary<int, string> y_string = new Dictionary<int, string>();
 
     [Header("Buttons")]
     [SerializeField]
@@ -146,7 +146,7 @@ public class SlotBehaviour : MonoBehaviour
     internal int BetCounter = 0;
     private double currentBalance = 0;
     private double currentTotalBet = 0;
-    protected int Lines = 20;
+    private int Lines = 20;
     [SerializeField]
     private int IconSizeFactor = 100;       //set this parameter according to the size of the icon and spacing
     private int numberOfSlots = 5;
@@ -780,7 +780,7 @@ public class SlotBehaviour : MonoBehaviour
         }
     }
 
-    internal void CheckWinPopups()
+    private void CheckWinPopups()
     {
         if (TotalWin_text) TotalWin_text.text = "<size=35>win</size>\n" + SocketManager.resultData.payload.winAmount.ToString("f3");
         if (SocketManager.resultData.payload.winAmount >= currentTotalBet * 5 && SocketManager.resultData.payload.winAmount < currentTotalBet * 10)

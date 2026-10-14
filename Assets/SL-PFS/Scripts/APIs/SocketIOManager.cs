@@ -20,32 +20,32 @@ public class SocketIOManager : MonoBehaviour
     internal UiData initUIData = null;
     internal Root resultData = null;
     internal Player playerdata = null;
-    internal List<List<int>> LineData = null;
+    private List<List<int>> LineData = null;
     [SerializeField]
-    internal List<string> bonusdata = null;
+    private List<string> bonusdata = null;
     //WebSocket currentSocket = null;
     internal bool isResultdone = false;
     // protected string nameSpace="game"; //BackendChanges
-    protected string nameSpace = "playground"; //BackendChanges
+    private string nameSpace = "playground"; //BackendChanges
     private Socket gameSocket; //BackendChanges
 
     private SocketManager manager;
 
-    protected string SocketURI = null;
+    private string SocketURI = null;
     //protected string TestSocketURI = "https://game-crm-rtp-backend.onrender.com/";
     //protected string TestSocketURI = "https://7p68wzhv-5000.inc1.devtunnels.ms/";
     //protected string TestSocketURI = "http://localhost:5000/";
-    protected string TestSocketURI = "https://devrealtime.dingdinghouse.com/";
+    private string TestSocketURI = "https://devrealtime.dingdinghouse.com/";
 
     [SerializeField]
     private string testToken;
     [SerializeField] internal JSFunctCalls JSManager;
-    protected string gameID = "SL-PSF";
+    private string gameID = "SL-PSF";
     //protected string gameID = "";
 
     internal bool isLoaded = false;
 
-    internal bool SetInit = false;
+    private bool SetInit = false;
 
     private const int maxReconnectionAttempts = 6;
     private readonly TimeSpan reconnectionDelay = TimeSpan.FromSeconds(10);

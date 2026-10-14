@@ -144,7 +144,7 @@ public class UIManager : MonoBehaviour
 
     private int FreeSpins;
     internal int localfreespin;
-    internal int ExtraSpins;
+    private int ExtraSpins;
     private Tween megawin_Tween;
 
 
